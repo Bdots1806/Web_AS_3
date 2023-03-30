@@ -144,5 +144,61 @@ namespace Web_AS_3.Controllers
 
             return CreatedAtAction(nameof(GetProduct), new { id = product.ProductID }, product);
         }
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<User>> DeleteDUser(int id)
+        {
+            var user = await _dbContext.Users.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            _dbContext.Users.Remove(user);
+            await _dbContext.SaveChangesAsync();
+
+            return user;
+        }
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Product>> DeleteDProduct(int id)
+        {
+            var product = await _dbContext.Products.FindAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            _dbContext.Products.Remove(product);
+            await _dbContext.SaveChangesAsync();
+
+            return product;
+        }
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Comments>> DeleteDComment(int id)
+        {
+            var comment = await _dbContext.Comments.FindAsync(id);
+            if (comment == null)
+            {
+                return NotFound();
+            }
+
+            _dbContext.Comments.Remove(comment);
+            await _dbContext.SaveChangesAsync();
+
+            return comment;
+        }
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Cart>> DeleteDCart(int id)
+        {
+            var cart = await _dbContext.Carts.FindAsync(id);
+            if (cart == null)
+            {
+                return NotFound();
+            }
+
+            _dbContext.Carts.Remove(cart);
+            await _dbContext.SaveChangesAsync();
+
+            return cart;
+        }
     }
 }
