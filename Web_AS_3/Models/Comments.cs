@@ -2,7 +2,7 @@
 {
     public class Comments
     {
-        public int commentId { get; set; }
+        public int CommentsId { get; set; }
         public string productID { get; set; }
         public string UserID { get; set; }
         public int rating { get; set; }
