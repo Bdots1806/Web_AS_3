@@ -118,7 +118,7 @@ namespace Web_AS_3.Controllers
             _dbContext.Users.Add(user);
             await _dbContext.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetUser), new { id = user.UserId}, user);
+            return CreatedAtAction(nameof(GetUsers), new { id = user.UserId}, user);
         }
         [HttpPost]
         public async Task<ActionResult<Cart>> PostCart(Cart cart)
@@ -126,7 +126,7 @@ namespace Web_AS_3.Controllers
             _dbContext.Carts.Add(cart);
             await _dbContext.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetCart), new { id = cart.cartId }, cart);
+            return CreatedAtAction(nameof(GetCarts), new { id = cart.cartId }, cart);
         }
         [HttpPost]
         public async Task<ActionResult<Comments>> PostComment(Comments comments)
@@ -134,7 +134,7 @@ namespace Web_AS_3.Controllers
             _dbContext.Comments.Add(comments);
             await _dbContext.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetComment), new { id = comments.CommentsId }, comments);
+            return CreatedAtAction(nameof(GetComments), new { id = comments.CommentsId }, comments);
         }
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
@@ -142,7 +142,7 @@ namespace Web_AS_3.Controllers
             _dbContext.Products.Add(product);
             await _dbContext.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetProduct), new { id = product.ProductID }, product);
+            return CreatedAtAction(nameof(GetProducts), new { id = product.ProductID }, product);
         }
         [HttpDelete("{id}")]
         public async Task<ActionResult<User>> DeleteDUser(int id)
