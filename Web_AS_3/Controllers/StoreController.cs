@@ -5,7 +5,7 @@ using Web_AS_3.Models;
 
 namespace Web_AS_3.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class StoreController : ControllerBase
     {
@@ -40,7 +40,7 @@ namespace Web_AS_3.Controllers
             return user;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cart>>> GetCart()
+        public async Task<ActionResult<IEnumerable<Cart>>> GetCarts()
         {
             if (_dbContext.Carts == null)
             {
@@ -64,7 +64,7 @@ namespace Web_AS_3.Controllers
             return cart;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Comments>>> GetComment()
+        public async Task<ActionResult<IEnumerable<Comments>>> GetComments()
         {
             if (_dbContext.Carts == null)
             {
@@ -88,7 +88,7 @@ namespace Web_AS_3.Controllers
             return com;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProduct()
+        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
             if (_dbContext.Carts == null)
             {
